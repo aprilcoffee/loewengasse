@@ -12,7 +12,7 @@ client.connect(('172.20.10.2', 9527))
 
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(26, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(26, GPIO.IN)
 
 while True:
     time.sleep(1)
