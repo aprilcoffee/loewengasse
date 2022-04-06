@@ -8,6 +8,7 @@ import sys
 server = OSCServer(("0.0.0.0",9527))
 counter = 0
 def msg_callback(path, tags, args, source):
+    global counter 
     print(int(args[0]))
     playsound('VAL.wav')
     counter+=1
