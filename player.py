@@ -1,16 +1,7 @@
-import RPi.GPIO as GPIO
-import time,os,signal,sys
-import subprocess
-import multiprocessing 
-
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(4,GPIO.IN,pull_up_down=GPIO.PUD_DOWN)
-
+from OSC import OSCServer,OSCClient, OSCMessage
+server = OSCServer((“0.0.0.0”,9527))
+def msg_callback(path, tags, args, source):
+       print(int(args[0]))
+server.addMsgHandler( “/msg”,msg_callback)
 while True:
-    time.sleep(1)
-    btn = GPIO.input(4)
-    if(btn==1):
-        proc = subprocess.Popen(args=['omxplayer','-o','both','VAL.wav'])
-        time.sleep(30)
-        subprocess.call(['pkill','-P',str(proc.pid)])
-        proc.kill()
+       server.handle_request()
