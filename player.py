@@ -1,5 +1,4 @@
 from OSC import OSCServer,OSCClient, OSCMessage
-from playsound import playsound
 import time
 import os
 import signal
@@ -13,18 +12,25 @@ def msg_callback(path, tags, args, source):
     print(int(args[0]))
     if(counter == 0):
         time.sleep(5)
-        playsound('val1.mp3')
+        proc1 = subprocess.Popen(args=['omxplayer','-o','both','val1.mp3'])
         time.sleep(120)
+        subprocess.call(['pkill','-P',str(proc1.pid)])
+        proc1.kill()
+
 
     elif(counter==1):
         time.sleep(5)
-        playsound('val2.mp3')
+        proc1 = subprocess.Popen(args=['omxplayer','-o','both','val2.mp3'])
         time.sleep(120)
+        subprocess.call(['pkill','-P',str(proc1.pid)])
+        proc1.kill()
 
     elif(counter==2):
         time.sleep(5)
-        playsound('val3.mp3')
+        proc1 = subprocess.Popen(args=['omxplayer','-o','both','val2.mp3'])
         time.sleep(120)
+        subprocess.call(['pkill','-P',str(proc1.pid)])
+        proc1.kill()
 
     counter+=1
     counter%=3
