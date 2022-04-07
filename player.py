@@ -3,6 +3,8 @@ import time
 import os
 import signal
 import sys
+import subprocess
+import multiprocessing
 
 server = OSCServer(("0.0.0.0",9527))
 counter = 0
