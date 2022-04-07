@@ -12,11 +12,11 @@ client.connect(('172.20.10.2', 9527))
 
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(26, GPIO.IN)
+GPIO.setup(4, GPIO.IN)
 
 while True:
     time.sleep(1)
-    btn = GPIO.input(26)
+    btn = GPIO.input(4)
     if(btn == 1):
         oscmsg = OSCMessage()
         oscmsg.setAddress("/msg")
