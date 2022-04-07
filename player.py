@@ -41,7 +41,7 @@ def playsound(unused_addr, args, signal):
 
 while True:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--ip",default="127.0.0.1", help="The ip to listen on")
+    parser.add_argument("--ip",default="0.0.0.0", help="The ip to listen on")
     parser.add_argument("--port",type=int, default=9527, help="The port to listen on")
     args = parser.parse_args()
 
