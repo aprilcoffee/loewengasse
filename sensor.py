@@ -23,4 +23,4 @@ while True:
         oscmsg.append(1)
         client.send(oscmsg)
 
-    print(btn)
+    #print(btn)
