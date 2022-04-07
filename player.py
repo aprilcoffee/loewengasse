@@ -16,21 +16,21 @@ def playsound(unused_addr, args, signal):
     global counter
     if(counter == 0):
         time.sleep(5)
-        proc1 = subprocess.Popen(args=['omxplayer', '-o', 'both', 'val1.mp3'])
+        proc1 = subprocess.Popen(args=['omxplayer', '-o', 'both', '/home/pi/Desktop/loewengasse/val1.mp3'])
         time.sleep(120)
         subprocess.call(['pkill', '-P', str(proc1.pid)])
         proc1.kill()
 
     elif(counter == 1):
         time.sleep(5)
-        proc1 = subprocess.Popen(args=['omxplayer', '-o', 'both', 'val2.mp3'])
+        proc1 = subprocess.Popen(args=['omxplayer', '-o', 'both', '/home/pi/Desktop/loewengasse/val2.mp3'])
         time.sleep(120)
         subprocess.call(['pkill', '-P', str(proc1.pid)])
         proc1.kill()
 
     elif(counter == 2):
         time.sleep(5)
-        proc1 = subprocess.Popen(args=['omxplayer', '-o', 'both', 'val2.mp3'])
+        proc1 = subprocess.Popen(args=['omxplayer', '-o', 'both', '/home/pi/Desktop/loewengasse/val2.mp3'])
         time.sleep(120)
         subprocess.call(['pkill', '-P', str(proc1.pid)])
         proc1.kill()
